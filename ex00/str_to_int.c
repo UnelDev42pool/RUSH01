@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 16:44:10 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 18:56:03 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/15 19:06:12 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,20 @@ int	char_is_numeric(char c)
 	}
 	return (0);
 }
-int verify(char str,int *last_is_number, int *last_is_space)
+
+int	ft_str_len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+int	verify(char str, int *last_is_number, int *last_is_space)
 {
 	if (str != ' ' && !char_is_numeric(str))
 		return (0);
@@ -42,7 +55,6 @@ int verify(char str,int *last_is_number, int *last_is_space)
 }
 
 int	str_to_int(char *str, int *array)
-// int	str_to_int(char *str)
 {
 	int	i;
 	int	nb;
@@ -55,7 +67,6 @@ int	str_to_int(char *str, int *array)
 	last_is_space = 1;
 	while (str[i])
 	{
-		// printf("%s\n", str);
 		if (!verify(str[i], &last_is_number, &last_is_space))
 			return (0);
 		if (char_is_numeric(str[i]))
@@ -65,7 +76,7 @@ int	str_to_int(char *str, int *array)
 		}
 		i++;
 	}
-	if (nb != 16)
+	if (nb != 16 || ft_str_len(str) != 31)
 		return (0);
 	return (1);
 }
