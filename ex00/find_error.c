@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:34:41 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 16:11:20 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/15 17:24:39 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ int	find_error(int *l_up, int *l_down, int *c_left, int *c_right)
 			return (1);
 		i++;
 	}
+	return (1);
 }

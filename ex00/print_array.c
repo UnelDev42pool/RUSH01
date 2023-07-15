@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pint_array.c                                       :+:      :+:    :+:   */
+/*   print_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:57:14 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 14:44:25 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/15 18:53:03 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
 
-void	print_array(int **array)
+void	print_array(int *array[])
 {
 	int	i;
 	int	j;
@@ -23,12 +23,13 @@ void	print_array(int **array)
 		j = 0;
 		while (j < 4)
 		{
-			ft_putchar(array[i][j] + 48);
+			array[i][j] = array[i][j] +48,
+			write(1, &array[i][j], 1);
 			if (j != 3)
-				ft_putchar(' ');
+				write(1, " ", 1);
 			j++;
 		}
-		ft_putchar('\n');
+		write(1, "\n", 1);
 		i++;
 	}
 }
