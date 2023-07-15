@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:57:18 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 14:50:31 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/15 14:59:30 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	print_array(int **array);
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	int	i;
 	int	j;
