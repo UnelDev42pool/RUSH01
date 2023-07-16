@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:57:14 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/16 10:03:06 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 11:28:53 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	print_array(int *array[])
 {
 	int	i;
 	int	j;
+	int cp;
 
 	i = 0;
 	while (i < 4)
@@ -23,8 +24,8 @@ void	print_array(int *array[])
 		j = 0;
 		while (j < 4)
 		{
-			array[i][j] = array[i][j] +48;
-			write(1, &array[i][j], 1);
+			cp = array[i][j] +48;
+			write(1, &cp, 1);
 			if (j != 3)
 				write(1, " ", 1);
 			j++;
