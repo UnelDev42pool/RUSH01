@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:57:18 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 18:55:22 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 10:27:52 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	print_array(int **array);
 int		find_error(int *l_up, int *l_down, int *c_left, int *c_right);
 int		str_to_int(char *str, int *final);
+int		**create_viewable(int *viewable);
 
 /**
  * The function creates a 2D array of size 4x4 and initializes all elements to 0.
@@ -45,6 +46,15 @@ int	**create_array(void)
 	return (arr);
 }
 
+int	verify_args(int argv, char *argc[], int *numbr)
+{
+	if (argv != 2)
+		return (1);
+	if (!str_to_int(argc[1], numbr))
+		return (1);
+	return (0);
+}
+
 /**
  * The main function creates and prints an array, and then frees the memory
  * allocated for each element of the array.
@@ -53,32 +63,22 @@ int	**create_array(void)
  */
 int	main(int argv, char *argc[])
 {
-	argv = 0;
-	int *numbr;
-	int i;
+	int	**viewable;
+	int	*numbr;
+	int	i;
 
 	i = 0;
 	numbr = malloc(16 * sizeof(int));
-	if(!str_to_int(argc[1], numbr))
+	if (verify_args(argv, argc, numbr))
 	{
-		printf("bwbfdksjbhfksidukbj");
+		write(1, "Error\n", 6);
 		return (1);
 	}
-	while (i < 16)
+	viewable = create_viewable(numbr);
+	if (find_error(viewable[0], viewable[1], viewable[2], viewable[3]))
 	{
-		printf("%d", numbr[i]);
-		i++;
+		write(1, "Error\n", 6);
+		return (1);
 	}
-
-	// int	**arr;
-
-	// i = 0;
-	// arr = create_array();
-	// print_array(arr);
-	// while (i < 4)
-	// {
-	// 	free(arr[i]);
-	// 	i++;
-	// }
-	// return (0);
+	print_array(viewable);
 }

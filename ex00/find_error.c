@@ -6,20 +6,20 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:34:41 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/15 17:24:39 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 10:03:25 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	find_error(int *l_up, int *l_down, int *c_left, int *c_right)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < 4)
 	{
-		if ( l_up[i] == l_down[i] && l_up[i] != 2)
+		if (l_up[i] == l_down[i] && l_up[i] != 2)
 			return (1);
-		if ( c_left[i] == c_right[i] && c_left[i] != 2)
+		if (c_left[i] == c_right[i] && c_left[i] != 2)
 			return (1);
 		if (l_up[i] == 4 && l_down[i] != 1)
 			return (1);
@@ -31,5 +31,5 @@ int	find_error(int *l_up, int *l_down, int *c_left, int *c_right)
 			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
