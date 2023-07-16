@@ -6,7 +6,7 @@
 /*   By: edi-iori <edi-iori@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 11:57:18 by edi-iori          #+#    #+#             */
-/*   Updated: 2023/07/16 11:16:53 by edi-iori         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 16:24:20 by edi-iori         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	verify_args(int argv, char *argc[], int *numbr)
 int	main(int argv, char *argc[])
 {
 	int	**viewable;
-	int **final;
+	int	**final;
 	int	*numbr;
 	int	i;
 
@@ -79,17 +79,14 @@ int	main(int argv, char *argc[])
 	viewable = create_viewable(numbr);
 	if (find_error(viewable[0], viewable[1], viewable[2], viewable[3]))
 	{
-		write(1, "Error\n", 6);
+		write(1, "Err\n", 6);
 		return (1);
 	}
-	write(1, "give\n", 5);
-	print_array(viewable);
 	final = create_array();
 	if (print_outstanding(final, viewable))
 	{
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	write(1, "out\n", 4);
 	print_array(final);
 }
